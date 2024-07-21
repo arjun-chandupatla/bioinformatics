@@ -8,8 +8,3 @@ def patternMatch(pattern: str, genome: str):
     for i in patternIndices:
         print(i, end = " ")
     return patternIndices
-
-file = open("Vibrio_cholerae.txt", "r")
-genome = file.read()
-file.close()
-patternMatch("CTTGATCAT", genome)
