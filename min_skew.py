@@ -13,6 +13,3 @@ def minimum_skew(genome: str) -> list[int]:
         if skewTable[k] == minSkewValue:
             minIndices.append(k + 1)
     return minIndices
-
-genome = "TAAAGACTGCCGAGAGGCCAACACGAGTGCTAGAACGAGGGGCGTAAACGCGGGTCCGAT"
-print(minimum_skew(genome))
