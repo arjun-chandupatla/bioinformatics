@@ -6,6 +6,3 @@ def pattern_count(text: str, pattern: str) -> int:
             print(text[i:i+len(pattern)])
             count += 1
     return count
-
-
-print(pattern_count("gcgcg", "gcg"))
