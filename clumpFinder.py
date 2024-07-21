@@ -9,9 +9,3 @@ def findClump(genome: str, k: int, l: int, t: int) -> list[str]:
             if freqMap[key] >= t and key not in kmers:
                 kmers.append(key)
     return kmers
-
-file = open("E_coli.txt", "r")
-genome = file.read()
-Kmers = findClump(genome, 9, 500, 3)
-print(len(Kmers))
-file.close()
