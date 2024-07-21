@@ -9,10 +9,3 @@ def approximate_pattern_matching(pattern:str, text: str, d: int) -> list[int]:
         if hamming_distance(subtext, pattern) <= d:
             startingPos.append(i)
     return startingPos
-
-com1 = """
-pat = "AAAAA"
-genome = "AACAAGCTGATAAACATTTAAAGAG"
-dist = 2
-print(len(approximate_pattern_matching(pat, genome, dist)))
-"""
