@@ -1,4 +1,5 @@
 from maxmap import maxMap
+from neighbors import neighbors
 import sys
 
 def frequencyTable(text: str, k: int):
