@@ -1,5 +1,6 @@
 from maxmap import maxMap
 from neighbors import neighbors
+from reverse_complement import reverseComplement
 import sys
 
 def frequencyTable(text: str, k: int):
