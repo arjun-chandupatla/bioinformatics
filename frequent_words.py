@@ -3,6 +3,7 @@ from neighbors import neighbors
 from reverse_complement import reverseComplement
 import sys
 
+# construct a dictionary that takes in a pattern and returns the number of times it occurs in a string
 def frequencyTable(text: str, k: int):
     freqMap = {}
     for i in range(len(text) - k + 1):
@@ -13,7 +14,7 @@ def frequencyTable(text: str, k: int):
             freqMap[subText] = 1
     return freqMap
 
-
+# returns the most frequent kmer in text
 def frequent_words(text: str, k: int):    
     freqMap = frequencyTable(text, k)
     print(freqMap)
@@ -24,7 +25,7 @@ def frequent_words(text: str, k: int):
             mostFreqPattern.append(p)
     return mostFreqPattern
 
-
+# returns the most frequent kmer in text, allowing for d mismatches
 def frequent_words_with_mismatches(text: str, k: int, d: int) -> list[str]:
     patterns = []
     freqMap = {}
@@ -43,7 +44,8 @@ def frequent_words_with_mismatches(text: str, k: int, d: int) -> list[str]:
             patterns.append(p)
     return patterns
 
-
+# returns the most frequent kmer(s) that occurs in text with up to d mismatches
+# also allows for its reverse complement to occur in text with d mismatches
 def frequent_words_mismatches_reverse_complement(text: str, k: int, d: int) -> list[str]:
     patterns = []
     freqMap = {}
