@@ -1,3 +1,4 @@
+# returns the reverse complement of a template dna strand
 def reverseComplement(template: str):
     rc = ""
     for c in template:
