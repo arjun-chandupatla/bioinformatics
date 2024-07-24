@@ -1,3 +1,5 @@
+# generates and returns a list of sequences that have a hamming distance of d from the pattern passed
+
 from hamming_distance import hamming_distance
 
 def neighbors(pattern: str, d: int):
