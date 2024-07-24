@@ -1,8 +1,5 @@
 from hamming_distance import hamming_distance
 
-def suffix(pattern: str) -> str:
-    return pattern[1:]
-
 def neighbors(pattern: str, d: int):
     nucleotides = ['A', 'C', 'G', 'T']
     if d == 0:
@@ -12,7 +9,7 @@ def neighbors(pattern: str, d: int):
     neighborhood = []
     suffixNeighbors = neighbors(suffix(pattern), d)
     for text in suffixNeighbors:
-        if hamming_distance(suffix(pattern), text) < d:
+        if hamming_distance(pattern[1:], text) < d:
             for x in nucleotides:
                 neighborhood.append(x + text)
         else:
