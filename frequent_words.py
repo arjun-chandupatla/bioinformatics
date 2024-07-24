@@ -1,4 +1,4 @@
-from maxMap import maxMap
+from maxmap import maxMap
 import sys
 
 def frequencyTable(text: str, k: int):
@@ -12,7 +12,7 @@ def frequencyTable(text: str, k: int):
     return freqMap
 
 
-def freqWords(text: str, k: int):    
+def frequent_words(text: str, k: int):    
     freqMap = frequencyTable(text, k)
     print(freqMap)
     max = maxMap(freqMap)
@@ -21,3 +21,22 @@ def freqWords(text: str, k: int):
         if freqMap[p] == max:
             mostFreqPattern.append(p)
     return mostFreqPattern
+
+
+def frequent_words_with_mismatches(text: str, k: int, d: int) -> list[str]:
+    patterns = []
+    freqMap = {}
+    n = len(text)
+    for i in range(n - k + 1):
+        pattern = text[i:i+k]
+        neighborhood = neighbors(pattern)
+        for neighbor in neighborhood:
+            if neighbor in freqMap:
+                freqMap[neighbor] += 1
+            else:
+                freqMap[neighbor] = 1
+    m = maxMap(freqMap)
+    for p in freqMap.keys():
+        if freqMap[p] == m:
+            patterns.append(p)
+    return patterns
