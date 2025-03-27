@@ -1,2 +1,2 @@
 # bioinformatics
-Exercises from Bioinformatics Algorithms: An Active Learning Approach
+Some exercises from Bioinformatics Algorithms: An Active Learning Approach
