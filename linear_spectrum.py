@@ -10,7 +10,7 @@ def peptide_mass(pep: str) -> int:    # find the  mass of a peptide
     return m
 
 
-def prefix_mass(pep: str):
+def prefix_mass(pep: str):    # return the masses of each prefix of pep in increasing order
     for i in range(len(pep) + 1):
         yield peptide_mass(pep[:i])
 
