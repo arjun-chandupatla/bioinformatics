@@ -15,7 +15,7 @@ def prefix_mass(pep: str):    # return the masses of each prefix of pep in incre
         yield peptide_mass(pep[:i])
 
 
-def linear_spectrum(pep: str) -> list[int]:
+def linear_spectrum(pep: str) -> list[int]:    # output the (sorted) mass spectrum of pep, a linear peptide
     pmass = list(prefix_mass(pep))
     spectrum = [0]
     for i in range(len(pep)):
