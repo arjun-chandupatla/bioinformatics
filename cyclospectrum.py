@@ -15,7 +15,7 @@ def prefix_mass(pep: str):    # return the masses of the prefixes of pep in incr
         yield peptide_mass(pep[:i])
 
 
-def cyclic_spectrum(pep: str) -> list[int]:
+def cyclic_spectrum(pep: str) -> list[int]:    # return the mass spectrum of a cyclic peptide
     pmass = list(prefix_mass(pep))
     pep_mass = pmass[-1]
     c_spec = [0]
