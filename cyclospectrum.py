@@ -8,3 +8,8 @@ def peptide_mass(pep: str) -> int:  # return the mass of a peptide
     for a in pep.upper():
         m += AminoAcidMass[a]
     return m
+
+
+def prefix_mass(pep: str):
+    for i in range(len(pep) + 1):
+        yield peptide_mass(pep[:i])
