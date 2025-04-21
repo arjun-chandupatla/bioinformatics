@@ -44,6 +44,8 @@ def expand(peptides: list[str]):    # extend a list of peptides
 
 
 def cyclopeptide_sequencing(spectrum: list[int]) -> list[list[int]]:
+    # find peptides with a mass spectrum consistent with that provided
+    # treats I and L, and K and Q as the same
     candidates = [""]   # candidate peptides
     final = []          # final peptides
     parent_mass = max(spectrum) 
