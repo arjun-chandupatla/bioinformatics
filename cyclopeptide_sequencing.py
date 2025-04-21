@@ -8,7 +8,7 @@ def peptide_mass(pep: str) -> int:     # find the (approximate) mass of a peptid
     return m
 
 
-def prefix_mass(pep: str):
+def prefix_mass(pep: str):    # find the masses of the prefixes of a peptide; helps find mass spectra
     for i in range(len(pep) + 1):
         yield peptide_mass(pep[:i])
 
