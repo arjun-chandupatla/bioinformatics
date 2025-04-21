@@ -64,3 +64,20 @@ def cyclopeptide_sequencing(spectrum: list[int]) -> list[list[int]]:
                 del candidates[i]
 
     return final
+
+
+def write_str(ans: list[list[int]]) -> str:
+    # format nested lists of peptides as chains of masses
+    # so MIT would be 131-113-101
+    # this would also provide the same result as MLT
+    ans2 = []
+    for r in ans:
+        ans2.append([])
+        for c in r:
+            ans2[-1].append(str(c))
+
+    s = ""
+    for i in ans2:
+        s += "-".join(i)
+        s += "\n"
+    return s
