@@ -8,6 +8,33 @@ def peptide_mass(pep: str) -> int:
     return m
 
 
+def prefix_mass(pep: str):
+    for i in range(len(pep) + 1):
+        yield peptide_mass(pep[:i])
+
+
+def linear_spectrum(pep: str) -> list[int]:
+    pmass = list(prefix_mass(pep))
+    spectrum = [0]
+    for i in range(len(pep)):
+        for j in range(i+1, len(pep) + 1):
+            spectrum.append(pmass[j] - pmass[i])
+    spectrum.sort()
+    return spectrum
+
+
+def cyclic_spectrum(pep: str) -> list[int]:
+    pmass = list(prefix_mass(pep))
+    pep_mass = pmass[-1]
+    c_spec = [0]
+    for i in range(len(pep)):
+        for j in range(i+1, len(pep) + 1):
+            c_spec.append(pmass[j] - pmass[i])
+            if i > 0 and j < len(pep):
+                c_spec.append(pep_mass - c_spec[-1])
+    c_spec.sort()
+    return c_spec
+
 
 def cyclopeptide_sequencing(spectrum: list[int]) -> list[list[int]]:
     candidates = [""]   # candidate peptides
