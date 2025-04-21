@@ -36,6 +36,13 @@ def cyclic_spectrum(pep: str) -> list[int]:
     return c_spec
 
 
+def expand(amino_list: list[str]):
+    for i in range(len(amino_list)):
+        amino = amino_list[i]
+        for a in "GASPVTCINDKEMHFRYW":
+            yield amino + a
+
+
 def cyclopeptide_sequencing(spectrum: list[int]) -> list[list[int]]:
     candidates = [""]   # candidate peptides
     final = []          # final peptides
