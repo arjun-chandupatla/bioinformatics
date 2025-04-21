@@ -13,7 +13,7 @@ def prefix_mass(pep: str):    # find the masses of the prefixes of a peptide; he
         yield peptide_mass(pep[:i])
 
 
-def linear_spectrum(pep: str) -> list[int]:
+def linear_spectrum(pep: str) -> list[int]:    # find the mass spectrum of a linear peptide
     pmass = list(prefix_mass(pep))
     spectrum = [0]
     for i in range(len(pep)):
@@ -23,7 +23,7 @@ def linear_spectrum(pep: str) -> list[int]:
     return spectrum
 
 
-def cyclic_spectrum(pep: str) -> list[int]:
+def cyclic_spectrum(pep: str) -> list[int]:    # find the mass spectrum of a cyclic peptide
     pmass = list(prefix_mass(pep))
     pep_mass = pmass[-1]
     c_spec = [0]
@@ -36,11 +36,11 @@ def cyclic_spectrum(pep: str) -> list[int]:
     return c_spec
 
 
-def expand(amino_list: list[str]):
-    for i in range(len(amino_list)):
-        amino = amino_list[i]
+def expand(peptides: list[str]):    # extend a list of peptides
+    for i in range(len(peptides)):
+        peptide = peptides[i]
         for a in "GASPVTCINDKEMHFRYW":
-            yield amino + a
+            yield peptide + a
 
 
 def cyclopeptide_sequencing(spectrum: list[int]) -> list[list[int]]:
