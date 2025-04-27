@@ -65,10 +65,20 @@ def cyclopeptide_sequencing(spectrum: list[int]) -> list[list[str]]:
 
     return final
 
-def score_cyclopeptide():
+def score_cyclopeptide(peptide: str, e_spec: list[int]) -> int:
     # responds to imperfections and inaccuracies in mass spectroscopy readings
     # "scores" a peptide based on how close its theoretical spectrum is to the experimental spectrum
     # a higher score means a higher fidelity
+    t_spec = cyclic_spectrum(peptide)
+    score = 0
+    checked_arr = []
+    for i in t_spec:
+        if i in checked_arr:
+            pass
+        elif i in e_spec:
+            score += min(e_spec.count(i), t_spec.count(i))
+            checked_arr.append(i)
+    return score
 
 
 def write_str(ans: list[list[int]]) -> str:
