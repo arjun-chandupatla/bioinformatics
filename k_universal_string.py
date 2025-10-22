@@ -24,6 +24,8 @@ def binStrings(k: int) -> list[str]:
             element += j
         patterns[i] = element
     return patterns
+
+
   def eulerian_cycle(graph: dict[int, list[int]]) -> list[int]:
     
     unused_edges = copy.deepcopy(graph)
